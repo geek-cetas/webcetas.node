@@ -1,4 +1,4 @@
-var eng = require('../conf');
+var eng = null; 
 
 langs = { set : setLanguage,
           get : getLanguage,
@@ -18,7 +18,8 @@ function getLanguage()
 
 function translate( str, callback )
 {
-    eng.translate_engine( dest_lang, str, callback ); 
+    callback( str );
+    //eng.translate_engine( dest_lang, str, callback ); 
 }
 
 module.exports = langs;

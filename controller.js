@@ -1,4 +1,3 @@
-var conf = require('./conf');
 var views = require('./views');
 
 function drive( req, res )

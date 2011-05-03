@@ -3,11 +3,13 @@ var ev = require('events').EventEmitter;
 var exception = function( ctx, ex, callback ) {
     if( !ex )
     {
-        if( callback ) {callback();}
+        callback ? callback():null;
         return false;
     }
+
     console.log( ex.stack );
-    ctx.emit( 'error', ex, message( ex ) );
+    if( ctx.__proto__ == ev.prototype )
+        ctx.emit( 'error', ex, message( ex ) );
     return true;
 };
 
